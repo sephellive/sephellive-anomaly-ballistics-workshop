@@ -187,29 +187,6 @@ local function on_test_fake_start_clicked(menu)
     end
 end
 
-local function on_xml_read(xml_file_name, xml_obj)
-    if xml_file_name ~= [[ui\ui_mm_main.xml]] then
-        return
-    end
-
-    local existing = xml_obj:query("menu_main btn[name=btn_sep_ballistics_workshop]")
-    if existing and existing[1] then
-        return
-    end
-
-    local menu_main_list = xml_obj:query("menu_main")
-    local menu_main = menu_main_list and menu_main_list[1] or nil
-    if not menu_main then
-        return
-    end
-
-    xml_obj:insertFromXMLString(
-        [[<btn name="btn_sep_ballistics_workshop" caption="ui_mm_menu_test_fake_start"/>]],
-        menu_main,
-        #menu_main.kids
-    )
-end
-
 local function on_main_menu_init(menu)
     if not menu or menu._sep_ballistics_workshop_hooked then
         return
@@ -318,7 +295,6 @@ local function load_state(m_data)
 end
 
 function register()
-    RegisterScriptCallback("on_xml_read", on_xml_read)
     RegisterScriptCallback("main_menu_on_init", on_main_menu_init)
     RegisterScriptCallback("actor_on_first_update", actor_on_first_update)
     RegisterScriptCallback("actor_on_update", actor_on_update)
