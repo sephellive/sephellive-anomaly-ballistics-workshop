@@ -294,7 +294,8 @@ local function load_state(m_data)
     state.warned_level = saved.warned_level and true or false
 end
 
-function register()
+function on_game_start()
+    printf("Sephellive ballistics workshop | autoload loaded")
     RegisterScriptCallback("main_menu_on_init", on_main_menu_init)
     RegisterScriptCallback("actor_on_first_update", actor_on_first_update)
     RegisterScriptCallback("actor_on_update", actor_on_update)
