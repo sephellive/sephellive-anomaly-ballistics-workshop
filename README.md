@@ -39,7 +39,7 @@ Build
 Run:
 
 ```powershell
-./tools/build.ps1 -Version v0.0.1
+./tools/build.ps1 -Version v0.0.5
 ```
 
 The archive is written to `dist/` and contains only `gamedata/`, matching the GitHub release layout.

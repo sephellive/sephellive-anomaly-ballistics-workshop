@@ -1,4 +1,7 @@
-function on_game_start()
+-- DXML invokes this entry point in every modxml_*.script during its own startup.
+-- It must not be named on_game_start: that callback is only called for scripts
+-- registered by Anomaly's autoload system.
+function on_xml_read()
     printf("Sephellive ballistics workshop | xml hook loaded")
     RegisterScriptCallback("on_xml_read", function(xml_file_name, xml_obj)
         if xml_file_name ~= [[ui\ui_mm_main.xml]] then
