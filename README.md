@@ -33,3 +33,13 @@ How to use
 If your level name or spawn chain is different from the current `fake_start` convention, edit `gamedata/scripts/sep_ballistics_workshop_autoload.script` and change `target_level`, `target_section`, or the startup command to match your setup.
 
 This repository only contains my original workshop code and configuration glue. It does not grant rights to game assets.
+
+Build
+
+Run:
+
+```powershell
+./tools/build.ps1 -Version v0.0.1
+```
+
+The archive is written to `dist/` and contains only `gamedata/`, matching the GitHub release layout.

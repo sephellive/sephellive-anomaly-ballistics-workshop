@@ -1,8 +1,7 @@
 # Build and release output
 /build/
-/dist/
+/dist/package/
 /release/
-*.zip
 
 # Logs and temporary files
 *.log
