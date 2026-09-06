@@ -4,7 +4,8 @@
 function on_xml_read()
     printf("Sephellive ballistics workshop | xml hook loaded")
     RegisterScriptCallback("on_xml_read", function(xml_file_name, xml_obj)
-        if xml_file_name ~= [[ui\ui_mm_main.xml]] then
+        local menu_main = xml_obj:query("menu_main")[1]
+        if not menu_main then
             return
         end
 
@@ -12,10 +13,7 @@ function on_xml_read()
             return
         end
 
-        local menu_main = xml_obj:query("menu_main")[1]
-        if not menu_main then
-            return
-        end
+        printf("Sephellive ballistics workshop | injecting main-menu button into %s", xml_file_name)
 
         xml_obj:insertFromXMLString(
             [[<btn name="btn_sep_ballistics_workshop" caption="ui_mm_menu_test_fake_start" />]],
